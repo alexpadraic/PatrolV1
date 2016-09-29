@@ -1,0 +1,82 @@
+<!doctype html>
+<!-- Declares meanMapApp as the starting Angular module -->
+<html class="no-js" ng-app="patrolMapApp">
+<head>
+  <meta charset="utf-8">
+  <title>Patrol | Crime Map</title>
+  <meta name="description" content="A crime data mapping app built off of an example demonstrating Google Map integration with MEAN Apps">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPt34WnRJS3S7BvZ2N-n76FFV5VFY6b_A&libraries=visualization"></script>
+
+  <!-- Modernizr -->
+  <script src="../bower_components/modernizr/bin/modernizr"></script>
+
+  <!-- JS Source -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-route/angular-route.js"></script>
+  <script src="../bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+
+  <!-- Angular Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/gservice.js"></script>
+  <script src="js/addCtrl.js"></script>
+  <script src="js/queryCtrl.js"></script>
+  <script src="js/headerCtrl.js"></script>
+</head>
+<body ng-controller="addCtrl">
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+  <div class="container">
+    <!-- Header Menu. Note use of headerCtrl -->
+    <div class="header" ng-controller="headerCtrl">
+
+      <ul class="nav nav-pills pull-right">
+        <!-- Links to the two menu views included -->
+        <!-- <li ng-class="{ active: isActive('/join')}"><a href="/#/join">Join the Patrol</a></li> -->
+        <li ng-class="{ active: isActive('/find')}"><a href="/#/find">Find Patrols</a></li>
+      </ul>
+
+      <h3 class="text-muted">Patrol</h3>
+    </div>
+
+    <!-- Map and Side Panel -->
+    <div class="row content">
+
+      <!-- Google Map -->
+      <div class="col-md-8">
+        <div id="map">
+<!--           <div id="floating-panel">
+            <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+            <button onclick="changeGradient()">Change gradient</button>
+            <button onclick="changeRadius()">Change radius</button>
+            <button onclick="changeOpacity()">Change opacity</button>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Side Panel (Controlled by ng-view) -->
+      <div ng-view></div>
+    </div>
+    <hr/>
+    <!-- Footer -->
+    <div class="footer">
+      <p class="text-center">
+        <span class="glyphicon glyphicon-check"></span> Credit to Ahmed Haque from scotch.io for the helpful tutorial -
+        <a href="https://scotch.io/">App Tutorial</a> | <a href="https://github.com/alexpadraic/Patrol">Patrol Github Repo</a>
+      </p>
+      <p class="text-center">
+        Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
